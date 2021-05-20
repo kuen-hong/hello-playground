@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my ripple</title>
+    <style>
+        .box {
+            background-color: blue;
+            width: 200px;
+            height: 200px;
+        }
+        .relative-box {
+            position: relative;
+        }
+        .coc {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background-color: red;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+        .ripple {
+            background-color: darkblue;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            animation: ripple 2s;
+	        animation-iteration-count: infinite;
+        }
+        @keyframes ripple {
+            from {
+                width: 30px;
+                height: 30px;
+            }
+            to {
+                width: 180px;
+                height: 180px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box relative-box">
+    <div class="coc"></div>
+    <div class="ripple"></div>
+</div>
+</body>
+</html>
