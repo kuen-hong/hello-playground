@@ -1,0 +1,6 @@
+#!/bin/bash
+HOST=db
+PORT=5557
+cd `dirname "$0"`
+# sed -n "s/dbcp2/jdbc2/p" mysql.cfg
+sed -n "s/[a-zA-Z0-9.]\+:[0-9]\+/$HOST:$PORT/p" mysql.cfg
