@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Third layer</title>
+</head>
+<body>
+<h1>3rd layer</h1>
+<script>
+let targetWindow = window.parent != window.top ? window.top : undefined;
+if (targetWindow) {
+    targetWindow.postMessage('hello', '*');
+}
+</script>
+</body>
+</html>
