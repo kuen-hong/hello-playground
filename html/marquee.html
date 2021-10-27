@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>marquee</title>
+    <style>
+        .box {
+            width: 300px;
+            overflow-x: hidden;
+            text-indent: 0px;
+            white-space: nowrap;
+            animation-name: marquee;
+            animation-duration: 5s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            animation-delay: 1s;
+        }
+        .box:hover {
+            animation-play-state: paused;
+        }
+        @keyframes marquee {
+            0%, 20% {text-indent: 0;}
+            80%, 100% {
+                text-indent: var(--indent-end);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="box">
+    <p>hello world 1,hello world 2,hello world 3,hello world 4,hello world 5,hello world 6</p>
+</div>
+<script>
+let box = document.querySelector('.box');
+let p = document.querySelector('.box p');
+console.log(box.offsetWidth, p.scrollWidth);
+if (p.scrollWidth - box.offsetWidth > 0) {
+    box.style.setProperty('--indent-end', (box.offsetWidth - p.scrollWidth) + 'px');
+}
+</script>
+</body>
+</html>
